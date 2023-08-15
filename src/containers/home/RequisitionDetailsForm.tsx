@@ -15,9 +15,9 @@ const RequisitionDetailsForm: React.FC<{
 
   const { state, setState } = useData();
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
-    setState((prevState) => ({
+    setState((prevState: { requisitionDetails: any; }) => ({
       ...prevState,
       requisitionDetails: {
         ...prevState.requisitionDetails,
