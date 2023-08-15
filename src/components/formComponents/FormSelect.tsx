@@ -50,6 +50,8 @@ const FormSelect: React.FC<IFormSelectProps> = ({
     onBlur && onBlur(name, true);
   };
 
+  const menuPortalTarget = typeof document !== "undefined" ? document.body : null;
+
   return (
     <FromWrapper
       isInvalid={Boolean(error && touched)}
@@ -67,8 +69,12 @@ const FormSelect: React.FC<IFormSelectProps> = ({
         onChange={handleChange}
         onBlur={handleBlur}
         options={options}
+        menuPortalTarget={menuPortalTarget}
+        menuPosition={"fixed"}
+        
         // styles
         styles={{
+          
           container: (base) => ({
             ...base,
             width: "100%",
@@ -76,7 +82,7 @@ const FormSelect: React.FC<IFormSelectProps> = ({
             height: "auto",
             maxHeight: "none",
             minHeight: "none",
-            zIndex : 9999
+            
           }),
           control: (base, { isFocused }) => ({
             ...base,
