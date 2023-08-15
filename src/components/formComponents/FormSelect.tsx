@@ -34,7 +34,7 @@ const FormSelect: React.FC<IFormSelectProps> = ({
   const handleChange = (value: any) => {
     onChange && onChange(name, value?.value);
     console.log(value)
-    setState((prevState) => ({
+    setState((prevState: { requisitionDetails: any; interviewSettings: any; }) => ({
       ...prevState,
       requisitionDetails: {
         ...prevState.requisitionDetails,
